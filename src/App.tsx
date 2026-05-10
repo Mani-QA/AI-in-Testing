@@ -45,10 +45,8 @@ export default function App() {
     const speaker = SPEAKERS[line.speaker];
     const utterance = new SpeechSynthesisUtterance(line.text);
     
-    // Attempt to match the "Audio Profile"
-    // Rapid Fire = higher rate
-    // Vocal Smile = slightly higher pitch
-    utterance.rate = speaker?.pace === "Rapid Fire" ? 1.25 : 1.1;
+    // Standard 1x speed for all speakers as requested
+    utterance.rate = 1.0;
     utterance.pitch = speaker?.style.includes("Vocal Smile") ? 1.15 : 1.0;
     
     // Try to vary voices slightly if multiple are available
